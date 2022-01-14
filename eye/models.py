@@ -1,23 +1,21 @@
 from django.db import models
 
 
-class Category(models.Model):
-    name = models.CharField(max_length=30)
-
 class Application(models.Model):
     name = models.CharField(max_length=30)
     trusted = models.BooleanField()
 
 class Session(models.Model):
-    pass
+    session_id = models.model(unique=True)
 
 class Event(models.Model):
-    order = models.IntegerField()
-    category = models.ForeignKey(Category)
+    order = models.Autofield()
+    category = models.CharField(max_length=30)
     session = models.ForeignKey(Session)
     application = models.ForeignKey(Application)
     name = models.CharField(max_length=30)
     payload = models.JSONField()
+    timestamp = models.DateTime()
 
 
 
