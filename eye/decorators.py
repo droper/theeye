@@ -1,3 +1,5 @@
+"""Django decorators"""
+
 from django.http import HttpResponseNotFound
 
 from .models import Application
