@@ -1,8 +1,8 @@
 """Client for the project"""
 
-import requests
 import argparse
 import datetime
+import requests
 
 
 parser = argparse.ArgumentParser(description='Send POST requirements.')
@@ -22,8 +22,8 @@ args = parser.parse_args()
 
 # Generate Post request
 timestamp = datetime.datetime.now()
-data = {'session_id': args.session, 'category': args.session, 'name': args.name,
-        'data': args.payload,
+data = {'session_id': args.session, 'category': args.session,
+        'name': args.name, 'data': args.payload,
         'timestamp': timestamp.strftime("%Y-%m-%d %H:%M:%S.%f")}
 
 # Send the post request
@@ -31,10 +31,3 @@ print(data)
 resp = requests.post(args.url, data=data)
 
 print(resp.text)
-
-
-
-
-
-
-

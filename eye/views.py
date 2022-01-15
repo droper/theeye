@@ -13,6 +13,7 @@ from .decorators import application_trusted
 # Get an instance of a logger
 logger = logging.getLogger(__name__)
 
+
 @csrf_exempt
 @application_trusted
 def event(request, app):
@@ -26,8 +27,7 @@ def event(request, app):
             session.save()
         else:
             session = Session.objects.get(session_id=request.POST['session_id'])
-        timestamp = datetime.strptime(request.POST['timestamp'],
-                                     "%Y-%m-%d %H:%M:%S.%f")
+        timestamp = datetime.strptime(request.POST['timestamp'], "%Y-%m-%d %H:%M:%S.%f")
         # Create the event
         event = Event(category=request.POST['category'],
                       session=session,
@@ -40,9 +40,3 @@ def event(request, app):
         logger.info('Timestamp: ' + request.POST['timestamp'])
         return HttpResponse('Event saved')
     return HttpResponseNotFound('Event not saved')
-
-
-
-
-
-

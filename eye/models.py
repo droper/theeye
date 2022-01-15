@@ -9,10 +9,12 @@ class Application(models.Model):
     name = models.CharField(max_length=30)
     trusted = models.BooleanField()
 
+
 class Session(models.Model):
     """Session model"""
 
     session_id = models.CharField(max_length=100, unique=True)
+
 
 class Event(models.Model):
     """Event model"""
@@ -23,6 +25,3 @@ class Event(models.Model):
     name = models.CharField(max_length=30)
     payload = models.JSONField()
     timestamp = models.DateTimeField()
-
-
-

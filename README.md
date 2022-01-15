@@ -4,9 +4,3 @@ In this project the following criteria is used:
 * Not validation of the payload.
 * Just a simple django view for the sake of simplicity.
 
-* 
-* TODO
-* Reutilizable client
-* Documentation
-* Cache and not async
-
